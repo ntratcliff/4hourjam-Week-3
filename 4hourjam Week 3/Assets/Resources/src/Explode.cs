@@ -16,7 +16,7 @@ public class Explode : MonoBehaviour
             Debug.LogError("Failed to load Voxel prefab");
         }
 
-        //StartCoroutine(TestExplode());
+        StartCoroutine(TestExplode());
     }
 
     public void DoExplode()
@@ -44,7 +44,7 @@ public class Explode : MonoBehaviour
 
     IEnumerator TestExplode()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(Random.Range(5,30));
         DoExplode();
     }
 }
