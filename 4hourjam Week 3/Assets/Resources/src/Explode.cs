@@ -16,7 +16,7 @@ public class Explode : MonoBehaviour
             Debug.LogError("Failed to load Voxel prefab");
         }
 
-        StartCoroutine(TestExplode());
+        //StartCoroutine(TestExplode());
     }
 
     public void DoExplode()
