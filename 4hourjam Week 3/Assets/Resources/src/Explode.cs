@@ -21,6 +21,7 @@ public class Explode : MonoBehaviour
 
     public void DoExplode()
     {
+        AudioSource.PlayClipAtPoint(GetComponent<AudioSource>().clip, transform.position);
         Destroy(GetComponent<BoxCollider>());
         Destroy(GetComponent<MeshRenderer>());
         for (int i = 0; i < Voxels; i++)
@@ -39,12 +40,13 @@ public class Explode : MonoBehaviour
         if (range.y < 0)
             range.y = -range.y; 
         voxel.GetComponent<Rigidbody>().velocity = range;
+        voxel.transform.position = transform.position;
         yield return null;
     }
 
     IEnumerator TestExplode()
     {
-        yield return new WaitForSeconds(Random.Range(5,30));
+        yield return new WaitForSeconds(Random.Range(15,120));
         DoExplode();
     }
 }
